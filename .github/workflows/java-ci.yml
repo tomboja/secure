@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "**" ]  # Triggers for all PRs
 
-permissions:  # ✅ Add required permissions
+permissions:
   contents: read
   security-events: write
 
@@ -14,6 +14,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    env: # ✅ Add this here
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
     steps:
     - name: Checkout Code
@@ -54,3 +57,5 @@ jobs:
 
     - name: Update Dependency Graph
       uses: advanced-security/maven-dependency-submission-action@v4
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
