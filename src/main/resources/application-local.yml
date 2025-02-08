@@ -1,0 +1,4 @@
+security:
+  user:
+    name: ${SECURITY_USERNAME:user}
+    password: ${SECURITY_PASSWORD:Rail@Poipoi11}
