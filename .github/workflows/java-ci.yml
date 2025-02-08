@@ -6,12 +6,11 @@ on:
   pull_request:
     branches: [ "**" ]  # Triggers for all PRs
 
-permissions: write-all
-#  contents: write
-#  actions: read
-#  checks: write
-#  pull-requests: write
-#  repository-projects: write
+permissions:
+  contents: write
+  security-events: write
+  pull-requests: read
+
 
 jobs:
   build:
