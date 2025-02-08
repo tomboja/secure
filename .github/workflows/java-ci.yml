@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "**" ]  # Triggers for all PRs
 
+permissions:  # ✅ Add required permissions
+  contents: read
+  security-events: write
+
 jobs:
   build:
 
