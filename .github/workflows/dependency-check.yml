@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: 21
 
       - name: Set JAVA_HOME explicitly
         run: echo "JAVA_HOME=${{ steps.setup-java.outputs.JAVA_HOME }}" >> $GITHUB_ENV
@@ -40,7 +40,8 @@ jobs:
           format: "HTML"
           out: "reports"
         env:
-          JAVA_HOME: ${{ steps.setup-java.outputs.JAVA_HOME }}  # Explicitly pass JAVA_HOME to Docker
+          JAVA_HOME: ${{ github.env.JAVA_HOME }}
+#          JAVA_HOME: ${{ steps.setup-java.outputs.JAVA_HOME }}  # Explicitly pass JAVA_HOME to Docker
 
       - name: Upload Dependency Check Report
         uses: actions/upload-artifact@v4
