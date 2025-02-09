@@ -29,6 +29,9 @@ jobs:
           key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: maven-${{ runner.os }}-
 
+      - name: Verify JAVA_HOME
+        run: echo "JAVA_HOME is set to $JAVA_HOME"
+
       - name: Run OWASP Dependency-Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
@@ -37,7 +40,7 @@ jobs:
           format: "HTML"
           out: "reports"
         env:
-          JAVA_HOME: ${{ steps.setup-java.outputs.JAVA_HOME }}  # Set JAVA_HOME for Dependency-Check
+          JAVA_HOME: ${{ steps.setup-java.outputs.JAVA_HOME }}  # Explicitly pass JAVA_HOME to Docker
 
       - name: Upload Dependency Check Report
         uses: actions/upload-artifact@v4
