@@ -11,3 +11,7 @@ logging:
     org.springframework.security: ${SPRING_SECURITY_LOG_LEVEL:TRACE}
   pattern:
     console: ${LOG_PATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %green([%thread]) %cyan(%logger{15}) - %msg%n}
+
+stripe:
+  payment:
+    secretKey: ${STRIPE_API_KEY:sk_test_51M7Oc0HdU5KtG0aBZqkOu6D4lE1i2wYn8mJ9G5oK9oK9oK9}
