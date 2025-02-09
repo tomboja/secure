@@ -36,6 +36,8 @@ jobs:
           path: "."
           format: "HTML"
           out: "reports"
+        env:
+          JAVA_HOME: ${{ steps.setup-java.outputs.JAVA_HOME }}  # Set JAVA_HOME for Dependency-Check
 
       - name: Upload Dependency Check Report
         uses: actions/upload-artifact@v4
