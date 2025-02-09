@@ -19,6 +19,9 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Set JAVA_HOME explicitly
+        run: echo "JAVA_HOME=${{ steps.setup-java.outputs.JAVA_HOME }}" >> $GITHUB_ENV
+
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
