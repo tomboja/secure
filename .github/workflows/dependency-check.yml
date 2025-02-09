@@ -20,7 +20,7 @@ jobs:
           java-version: 21
 
       - name: Set JAVA_HOME explicitly
-        run: echo "JAVA_HOME=${{ steps.setup-java.outputs.JAVA_HOME }}" >> $GITHUB_ENV
+        run: echo "JAVA_HOME=${{ steps.setup-java.outputs.java-home }}" >> $GITHUB_ENV
 
       - name: Cache Maven dependencies
         uses: actions/cache@v3
@@ -41,7 +41,6 @@ jobs:
           out: "reports"
         env:
           JAVA_HOME: ${{ github.env.JAVA_HOME }}
-#          JAVA_HOME: ${{ steps.setup-java.outputs.JAVA_HOME }}  # Explicitly pass JAVA_HOME to Docker
 
       - name: Upload Dependency Check Report
         uses: actions/upload-artifact@v4
