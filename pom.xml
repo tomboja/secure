@@ -63,6 +63,7 @@
             <artifactId>stripe-java</artifactId>
             <version>28.3.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -78,6 +79,18 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>8.4.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
